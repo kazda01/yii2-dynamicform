@@ -62,7 +62,9 @@
         $template.find('div[data-dynamicform]').each(function(){
             var widgetOptions = eval($(this).attr('data-dynamicform'));
             if ($(widgetOptions.widgetItem).length > 1) {
-                var item = $(this).find(widgetOptions.widgetItem).first()[0].outerHTML;
+                if($(this).find(widgetOptions.widgetItem).length > 1){
+		    var item = $(this).find(widgetOptions.widgetItem).first()[0].outerHTML;
+		}
                 $(this).find(widgetOptions.widgetBody).html(item);
             }
         });
